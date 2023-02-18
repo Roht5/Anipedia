@@ -54,7 +54,8 @@ class CrouselWidget extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: CrouselWidgetSample(organismT[index]['name'], organismT[index]['image']),
+                      child: CrouselWidgetSample(
+                          organismT[index]['name'], organismT[index]['image']),
                     );
                   }),
             ),
@@ -87,14 +88,38 @@ class CrouselWidgetSample extends StatelessWidget {
               elevation: 8,
               borderRadius: BorderRadius.circular(10),
               child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10),
                 child: Container(
                   height: 30,
                   width: 130,
                   alignment: Alignment.center,
                   color: const Color.fromARGB(255, 25, 85, 134),
-                  child: Text(name.toString(),style: const TextStyle(fontSize: 20,color: Colors.white),),
-                  // child: AnimatedTextKit(animatedTexts: ty),
+                  // child: Text(name.toString(),style: const TextStyle(fontSize: 20,color: Colors.white),),
+                  child: AnimatedTextKit(
+                animatedTexts: [
+                  RotateAnimatedText('AWESOME',
+                      textStyle: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          backgroundColor: Colors.blue)),
+                  RotateAnimatedText('OPTIMISTIC',
+                      textStyle: TextStyle(
+                          letterSpacing: 3,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orange)),
+                  RotateAnimatedText(
+                    'DIFFERENT',
+                    textStyle: TextStyle(
+                      fontSize: 30,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ],
+                isRepeatingAnimation: true,
+                totalRepeatCount: 10,
+                pause: Duration(milliseconds: 1000),
+              ),
                 ),
               ),
             ),
@@ -103,11 +128,11 @@ class CrouselWidgetSample extends StatelessWidget {
             ),
             Container(
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15),
                   child: Image.asset(
-                image.toString(),
-                height: 130,
-              )),
+                    image.toString(),
+                    height: 130,
+                  )),
             ),
           ],
         ),
