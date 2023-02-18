@@ -1,4 +1,5 @@
 import 'package:anipedia/Screens/Favourite.dart';
+import 'package:anipedia/Screens/quiz/quizWindow.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -17,10 +18,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const List<Widget> _widgetOptions = <Widget>[
     Home(),
     Favourtie(),
-    Text(
-      'Quiz',
-      style: optionStyle,
-    ),
+    QuizWindow(), 
     Text(
       'Stories',
       style: optionStyle,

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class Animals with ChangeNotifier {
-  List _extinctSpecies = [
+  final List _extinctSpecies = [
     {
       "name": "Dodo",
       "image": "assets/dodo.jpg",
@@ -131,7 +131,7 @@ class Animals with ChangeNotifier {
           "A species of sparrow native to the Atlantic coast of Florida. They were threatened by habitat loss due to development and the introduction of non-native species, leading to their extinction in the late 20th century."
     },
   ];
-  List _Animals = [
+  final List _Animals = [
     {
       "name": "Lion",
       "image": "assets/animals/Lion.jpg",
@@ -273,7 +273,7 @@ class Animals with ChangeNotifier {
           "Penguins are flightless birds found in the Southern Hemisphere and are known for their distinctive appearance and behavior. Penguins are highly adapted to life in the water and feed on fish and other sea creatures. They play an important role."
     },
   ];
-  var _Birds = [
+  final _Birds = [
     {
       "name": "Eagle",
       "description":
@@ -375,7 +375,7 @@ class Animals with ChangeNotifier {
           "Albatrosses are seabirds found in the Southern Ocean and are known for their large size, long wingspan, and their ability to fly great distances. Albatrosses play an important role in maintaining healthy ecosystems by controlling fish and squid populations."
     }
   ];
-  List _OrganismType = [
+  final List _OrganismType = [
     {
       'name': 'Animals',
       'image': 'assets/monkey.jpeg',
@@ -405,7 +405,7 @@ class Animals with ChangeNotifier {
       'image': 'assets/Dinosaur.png',
     },
   ];
-  List _animalOfDay = [
+  final List _animalOfDay = [
     {
       'name': 'Dogs',
       'image': 'assets/DogCrousel.png',

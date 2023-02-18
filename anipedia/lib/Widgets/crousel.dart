@@ -97,28 +97,15 @@ class CrouselWidgetSample extends StatelessWidget {
                   // child: Text(name.toString(),style: const TextStyle(fontSize: 20,color: Colors.white),),
                   child: AnimatedTextKit(
                 animatedTexts: [
-                  RotateAnimatedText('AWESOME',
+                  TyperAnimatedText(name.toString(),
                       textStyle: TextStyle(
                           fontSize: 30,
-                          color: Colors.white,
-                          backgroundColor: Colors.blue)),
-                  RotateAnimatedText('OPTIMISTIC',
-                      textStyle: TextStyle(
-                          letterSpacing: 3,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.orange)),
-                  RotateAnimatedText(
-                    'DIFFERENT',
-                    textStyle: TextStyle(
-                      fontSize: 30,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
+                          color: Colors.white,)),
+                  
                 ],
                 isRepeatingAnimation: true,
-                totalRepeatCount: 10,
-                pause: Duration(milliseconds: 1000),
+                totalRepeatCount: 1,
+                pause: Duration(milliseconds: 2000),
               ),
                 ),
               ),
