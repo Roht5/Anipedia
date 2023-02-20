@@ -1,4 +1,5 @@
 import 'package:anipedia/Screens/Favourite.dart';
+import 'package:anipedia/Screens/story/story.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -21,10 +22,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       'Quiz',
       style: optionStyle,
     ),
-    Text(
-      'Stories',
-      style: optionStyle,
-    ),
+    Story()
   ];
 
   void _onItemTapped(int index) {
@@ -63,7 +61,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         currentIndex: _selectedIndex,
         showSelectedLabels: true,
         showUnselectedLabels: false,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Color.fromARGB(255, 11, 53, 126),
         selectedItemColor: const Color.fromARGB(255, 0, 174, 255),
         onTap: _onItemTapped,
       ),

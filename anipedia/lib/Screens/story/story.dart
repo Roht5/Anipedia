@@ -15,9 +15,7 @@ class Story extends StatelessWidget {
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(8),
-          child: ListView(
-            children: [StoriesViewFormat()],
-          ),
+          child: StoriesViewFormat(),
         ),
       ),
     );

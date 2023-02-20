@@ -6,7 +6,6 @@ import 'Screens/splash.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  
   const MyApp({super.key});
 
   static const String _title = 'Flutter Code Sample';
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (ctx)=>Animals(),
+      create: (ctx) => Animals(),
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: _title,
@@ -23,5 +22,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

@@ -7,38 +7,52 @@ class StoriesViewFormat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 5,
-      borderRadius: BorderRadius.circular(15),
-      child: Container(
-        // padding: EdgeInsets.all(10),
-        height: 200,
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(0),
-                bottomLeft: Radius.circular(15),
-                bottomRight: Radius.circular(200),
+    return Container(
+      child: ListView.builder(
+          itemCount: 4,
+          itemBuilder: (context, index) {
+            return Container(
+              // decoration:
+              //     BoxDecoration(border: Border.all(color: Colors.black)),
+              height: MediaQuery.of(context).size.height / 4,
+              width: MediaQuery.of(context).size.width / 1.065,
+              padding: const EdgeInsets.all(10),
+              child: Stack(
+                children: [
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: Material(
+                      borderRadius: BorderRadius.circular(15),
+                      elevation: 10,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              // border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: LinearGradient(
+                                begin: Alignment.topRight,
+                                end: Alignment.bottomLeft,
+                                colors: [
+                                  Color.fromARGB(255, 16, 8, 87),
+                                  Colors.blue,
+                                ],
+                              )),
+                          height: MediaQuery.of(context).size.height / 4,
+                          width: MediaQuery.of(context).size.width / 1.3,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                    alignment: Alignment.topLeft,
+                    child: Image.asset('assets/animals/wobackgiraffe.jpg'),
+                  )
+                ],
               ),
-              child: Image.asset(
-                'assets/Birds2.jpg',
-                height: 200,
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width / 2.5,
-              child: Center(
-                child: Text(
-                  'Sparrow And Marbles',
-                  style: TextStyle(fontSize: 39, fontWeight: FontWeight.bold),
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
+            );
+          }),
     );
   }
 }

@@ -31,12 +31,14 @@ class CrouselFormat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
       padding: const EdgeInsets.all(15),
-      height: 250,
+      height: 25,
       width: MediaQuery.of(context).size.width / 1.065,
       child: Stack(
         children: [
           Container(
+            // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
             alignment: Alignment.bottomCenter,
             child: Material(
               borderRadius: BorderRadius.circular(15),
@@ -44,19 +46,24 @@ class CrouselFormat extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Container(
+                  decoration: BoxDecoration(
+                    // border: Border.all(color: Colors.black),
+                    color: const Color.fromARGB(255, 18, 70, 160),
+                  ),
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   height: 150,
                   width: double.infinity,
-                  color: const Color.fromARGB(255, 18, 70, 160),
                   child: Row(
                     children: [
                       Container(
+                        // decoration: BoxDecoration(
+                        //     border: Border.all(color: Colors.black)),
                         width: 150,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              '🤔!!',
+                              '🤔!!!',
                               style: TextStyle(
                                   fontSize: 40,
                                   fontWeight: FontWeight.bold,
@@ -68,9 +75,11 @@ class CrouselFormat extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color.fromARGB(255, 233, 234, 252),
+                                backgroundColor:
+                                    const Color.fromARGB(255, 233, 234, 252),
                                 elevation: 15,
-                                shadowColor: const Color.fromARGB(255, 250, 246, 41),
+                                shadowColor:
+                                    const Color.fromARGB(255, 250, 246, 41),
                               ),
                               child: const Text(
                                 'Facts',
@@ -89,6 +98,7 @@ class CrouselFormat extends StatelessWidget {
             ),
           ),
           Container(
+            // decoration: BoxDecoration(border: Border.all(color: Colors.black)),
             alignment: Alignment.centerRight,
             child: Image.asset(image.toString()),
           )
