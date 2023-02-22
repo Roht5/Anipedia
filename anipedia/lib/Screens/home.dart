@@ -2,6 +2,7 @@ import 'package:anipedia/Widgets/Crousel.dart';
 import 'package:anipedia/Widgets/dayWise_crousel.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+// import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 import 'informationPage.dart';
 
@@ -26,7 +27,7 @@ class Home extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: 40,
-                    width: 140,
+                    width: MediaQuery.of(context).size.width / 2,
                     child: AnimatedTextKit(
                       pause: const Duration(seconds: 10),
                       totalRepeatCount: 5000000000000000,

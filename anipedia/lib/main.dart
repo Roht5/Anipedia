@@ -2,6 +2,7 @@ import 'package:anipedia/Data%20Store/information.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'Screens/splash.dart';
+// import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 void main() => runApp(const MyApp());
 
