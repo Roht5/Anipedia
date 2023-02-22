@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -30,16 +29,49 @@ class _SplashWindowState extends State<SplashWindow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 76, 175, 79),
-      body: Center(
-        child: Lottie.asset(
-          'Animations/elephant.json',
-          width: double.infinity,
-          repeat: false
-        ),
+      backgroundColor: Color.fromARGB(255, 58, 185, 62),
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Expanded(
+                flex: 16,
+                child: Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Color.fromARGB(255, 11, 54, 88),
+                      Color.fromARGB(255, 84, 173, 214),
+                    ],
+                  )),
+                ),
+              ),
+              Expanded(
+                flex: 6,  
+                child: Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Color.fromARGB(255, 22, 58, 23),
+                      Color.fromARGB(255, 79,	173,	25),
+                    ],
+                  )),
+                  // color: Colors.green,
+                  // color: Color.fromARGB(255, 155, 209, 53),
+                ),
+              )
+            ],
+          ),
+          Center(
+            child: Lottie.asset('Animations/elephant.json',
+                width: double.infinity, repeat: false),
+          ),
+        ],
       ),
     );
   }
 }
-
-

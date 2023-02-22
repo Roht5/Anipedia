@@ -419,18 +419,21 @@ class Animals with ChangeNotifier {
       'image': 'assets/ReptileCrousel1.png',
     },
   ];
+  // ignore: non_constant_identifier_names
   List get ExtinctSpecies {
     return [..._extinctSpecies];
   }
 
+  // ignore: non_constant_identifier_names
   List get Animal {
     return [..._Animals];
   }
 
+  // ignore: non_constant_identifier_names
   List get Birds {
     return [..._Birds];
   }
-
+  // ignore: non_constant_identifier_names
   List get OrganismType {
     return [..._OrganismType];
   }

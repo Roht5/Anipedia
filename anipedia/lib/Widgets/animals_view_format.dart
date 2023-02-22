@@ -5,25 +5,26 @@ import '../Data Store/information.dart';
 class AnimalViewFormat extends StatefulWidget {
   int index;
   var name;
-  AnimalViewFormat(this.index,this.name);
+  AnimalViewFormat(this.index, this.name);
   @override
-  State<AnimalViewFormat> createState() => _AnimalViewFormatState(index,name);
+  State<AnimalViewFormat> createState() => _AnimalViewFormatState(index, name);
 }
 
 class _AnimalViewFormatState extends State<AnimalViewFormat> {
   int index;
-  var name;
-  _AnimalViewFormatState(this.index,name);
+  String name;
+  _AnimalViewFormatState(this.index, this.name);
   @override
   Widget build(BuildContext context) {
-    final animalData = Provider.of<Animals>(context);
-    final animals ;
-    if (name=='Extinct Animals') {
+    print('Rebuilds');
+    final animalData = Provider.of<Animals>(context, listen: false);
+    final animals;
+    if (name == 'Extinct Animals') {
       animals = animalData.ExtinctSpecies;
-    }else if(name=='Animals'){
-      animals = animalData.ExtinctSpecies;
-    }else{
+    } else if (name == 'Animals') {
       animals = animalData.Animal;
+    } else {
+      animals = animalData.Birds;
     }
     return Material(
       elevation: 8,
@@ -50,7 +51,7 @@ class _AnimalViewFormatState extends State<AnimalViewFormat> {
                           overflow: TextOverflow.ellipsis),
                     ),
                   ),
-                  FavIconClick(index)
+                  FavIconClick(index),
                 ],
               ),
             ),
@@ -89,19 +90,24 @@ class _AnimalViewFormatState extends State<AnimalViewFormat> {
   }
 }
 
-class FavIconClick extends StatelessWidget {
+class FavIconClick extends StatefulWidget {
   int index;
   FavIconClick(this.index);
 
   @override
+  State<FavIconClick> createState() => _FavIconClickState();
+}
+
+class _FavIconClickState extends State<FavIconClick> {
+  @override
   Widget build(BuildContext context) {
     final animalData = Provider.of<Animals>(context);
     final animals = animalData.ExtinctSpecies;
-    return animals[index]['fav'] == true
+    return animals[widget.index]['fav'] == true
         ? GestureDetector(
             onTap: () {
-              animals[index]['fav'] = false;
-              animalData.favTap();
+              animals[widget.index]['fav'] = false;
+              setState(() {});
             },
             child: new Icon(
               Icons.favorite_sharp,
@@ -111,8 +117,8 @@ class FavIconClick extends StatelessWidget {
           )
         : GestureDetector(
             onTap: () {
-              animals[index]['fav'] = true;
-              animalData.favTap();
+              animals[widget.index]['fav'] = true;
+              setState(() {});
             },
             child: new Icon(
               Icons.favorite_border_outlined,

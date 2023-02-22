@@ -49,6 +49,7 @@ class CrouselWidget extends StatelessWidget {
               height: (MediaQuery.of(context).size.width / 1.9),
               width: (MediaQuery.of(context).size.width / 1.1),
               child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: organismT.length,
                   itemBuilder: (BuildContext context, int index) {
@@ -96,17 +97,17 @@ class CrouselWidgetSample extends StatelessWidget {
                   color: const Color.fromARGB(255, 25, 85, 134),
                   // child: Text(name.toString(),style: const TextStyle(fontSize: 20,color: Colors.white),),
                   child: AnimatedTextKit(
-                animatedTexts: [
-                  TyperAnimatedText(name.toString(),
-                      textStyle: TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,)),
-                  
-                ],
-                isRepeatingAnimation: true,
-                totalRepeatCount: 1,
-                pause: Duration(milliseconds: 2000),
-              ),
+                    animatedTexts: [
+                      TyperAnimatedText(name.toString(),
+                          textStyle: TextStyle(
+                            fontSize: 30,
+                            color: Colors.white,
+                          )),
+                    ],
+                    isRepeatingAnimation: true,
+                    totalRepeatCount: 1,
+                    pause: Duration(milliseconds: 2000),
+                  ),
                 ),
               ),
             ),

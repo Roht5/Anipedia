@@ -8,12 +8,12 @@ import 'package:provider/provider.dart';
 import '../Widgets/animals_view_format.dart';
 
 class InformationPage extends StatelessWidget {
-  var name;
+  String name;
   InformationPage(this.name, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    final animalData = Provider.of<Animals>(context);
+    final animalData = Provider.of<Animals>(context,listen: false);
     final animals;
     if (name == 'Extinct Animals') {
       animals = animalData.ExtinctSpecies;

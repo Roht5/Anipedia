@@ -43,14 +43,18 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  Material(
-                    elevation: 12,
-                    borderRadius: BorderRadius.circular(50),
-                    child: ClipRRect(
+                  GestureDetector(
+                    onTap: (() {
+                    }),
+                    child: Material(
+                      elevation: 12,
                       borderRadius: BorderRadius.circular(50),
-                      child: Image.asset(
-                        'assets/Dp1.webp',
-                        height: 60,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Image.asset(
+                          'assets/Dp1.webp',
+                          height: 60,
+                        ),
                       ),
                     ),
                   ),

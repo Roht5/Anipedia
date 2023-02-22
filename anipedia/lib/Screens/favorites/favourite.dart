@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Widgets/fav_container.dart';
+import 'fav_container.dart';
 
 class Favourtie extends StatelessWidget {
   const Favourtie({super.key});
