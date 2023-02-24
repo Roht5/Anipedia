@@ -41,6 +41,7 @@ dependencies:
   lottie: ^2.2.0
   flutter_tts: ^3.6.3
   sqflite: ^2.2.4+1
+  percent_indicator: ^4.0.1
   path:
 
 dev_dependencies:

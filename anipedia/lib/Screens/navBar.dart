@@ -1,6 +1,8 @@
 // import 'package:anipedia/Screens/Favourite.dart';
-import 'package:anipedia/Screens/favorites/dummyScreen.dart';
+import 'package:anipedia/Screens/Quiz/lifespan_quiz.dart';
+import 'package:anipedia/Screens/Quiz/match_the_animals.dart';
 import 'package:anipedia/Screens/quiz/quizWindow.dart';
+import 'package:anipedia/Screens/stories/storiesDisplayPage.dart';
 import 'package:flutter/material.dart';
 
 import 'favorites/favourite.dart';
@@ -20,8 +22,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static  final List<Widget> _widgetOptions = <Widget>[
     const Home(),
     const Favourtie(),
-    const QuizWindow(),
-    UsingDataBase()
+    const LifeSpanQuiz(),
+     StoriesDisplayPage()
   ];
 
   void _onItemTapped(int index) {
