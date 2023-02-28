@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 import '../../Data Store/information.dart';
@@ -17,7 +18,7 @@ class _FavContainerState extends State<FavContainer> {
     final animals = animalData.ExtinctSpecies;
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
+      child: SizedBox(
         // color: Colors.red,
         width: double.infinity,
         // color: Colors.amber,
@@ -25,9 +26,14 @@ class _FavContainerState extends State<FavContainer> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(15),
+                bottomRight: Radius.circular(20),
+                topRight: Radius.circular(15),
+                topLeft: Radius.circular(0),
+              ),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.green,
                   gradient: LinearGradient(
                     begin: Alignment.centerLeft,
@@ -35,7 +41,7 @@ class _FavContainerState extends State<FavContainer> {
                     colors: [Colors.lightBlue, Colors.lightGreen],
                   ),
                 ),
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 alignment: Alignment.center,
                 width: double.infinity,
                 child: const Text(
@@ -44,26 +50,72 @@ class _FavContainerState extends State<FavContainer> {
                 ),
               ),
             ),
-            Divider(),
-            Container(
+            const Divider(),
+            SizedBox(
               width: double.infinity,
               child: Container(
-              alignment: Alignment.center,
-              width: (MediaQuery.of(context).size.width / 1.1),
-              height: 200,
-              child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: animals.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return animals[index]['fav']==true? Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 8.0),
-                      child: FavContainerFormat(animals[index]['name'],animals[index]['image']),
-                    ):SizedBox();
-                  }),
-            ),)
+                alignment: Alignment.center,
+                width: (MediaQuery.of(context).size.width / 1.1),
+                height: 200,
+                child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: animals.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return animals[index]['fav'] == true
+                          ? Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: FavContainerFormat(animals[index]['name'],
+                                  animals[index]['image']),
+                            )
+                          : const SizedBox();
+                    }),
+              ),
+            ),
+            const SizedBox(
+              height: 300,
+              child: Center(child: BulbOn()),
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class BulbOn extends StatefulWidget {
+  const BulbOn({super.key});
+
+  @override
+  State<BulbOn> createState() => _BulbOnState();
+}
+
+class _BulbOnState extends State<BulbOn> {
+  bool check = false;
+  bool anima=false;
+  void glow() {
+    check = true;
+    anima=true;
+    setState(() {});
+    Future.delayed(const Duration(milliseconds: 2180), () {
+      check = false;
+      anima=false;
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        glow();
+      },
+      child: Lottie.asset(
+        'Animations/bulb.json',
+        width: MediaQuery.of(context).size.width / 2,
+        animate: anima,
+        repeat: check,
       ),
     );
   }
@@ -72,13 +124,13 @@ class _FavContainerState extends State<FavContainer> {
 class FavContainerFormat extends StatelessWidget {
   var name;
   var image;
-   FavContainerFormat(this.name,this.image);
+  FavContainerFormat(this.name, this.image);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
-      width: MediaQuery.of(context).size.width/1.1,
+      width: MediaQuery.of(context).size.width / 1.1,
       child: Stack(
         children: [
           Container(
@@ -110,8 +162,8 @@ class FavContainerFormat extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: SizedBox(
-                width: MediaQuery.of(context).size.width/2,
-                height: MediaQuery.of(context).size.width/2,
+                width: MediaQuery.of(context).size.width / 2,
+                height: MediaQuery.of(context).size.width / 2,
                 child: Image.asset(
                   image.toString(),
                   alignment: Alignment.centerLeft,

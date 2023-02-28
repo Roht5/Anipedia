@@ -13,8 +13,8 @@ class InformationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final animalData = Provider.of<Animals>(context,listen: false);
-    final animals;
+    final animalData = Provider.of<Animals>(context, listen: false);
+    final List animals;
     if (name == 'Extinct Animals') {
       animals = animalData.ExtinctSpecies;
     } else if (name == 'Animals') {
@@ -25,8 +25,10 @@ class InformationPage extends StatelessWidget {
     print("Hello It runs in background");
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         centerTitle: false,
+        leading: const BackButton(color: Colors.black,),
         title: Text(
           name,
           style: const TextStyle(color: Colors.black, fontSize: 30),

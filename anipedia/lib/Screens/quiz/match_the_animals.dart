@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:chat_bubbles/chat_bubbles.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
+
+import '../../Data Store/quiz_information.dart';
 
 List animals = ['lion', 'elephant', 'dog', 'sheep'];
 List babies = ['cub', 'calf', 'puppy', 'lamb'];
-
 bool Left = true;
 bool Right = true;
 int i = 9;
@@ -18,78 +19,74 @@ class MatchTheAnimalsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final quizData = Provider.of<Quiz>(context, listen: false);
+    final lifespan = quizData.LifeSpan;
     Left = true;
     Right = true;
     leftSelected = false;
     rightSelected = false;
     counter = 0;
     return SafeArea(
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 5,
-          ),
-          LinearPercentIndicator(
-            width: MediaQuery.of(context).size.width,
-            animation: true,
-            lineHeight: 20.0,
-            animationDuration: 2000,
-            percent: 0.6,
-            barRadius: const Radius.circular(15),
-            // linearStrokeCap: LinearStrokeCap.roundAll,
-            progressColor: Colors.green,
-          ),
-          SizedBox(
-            width: double.infinity,
-            height: 250,
-            child: Stack(
-              children: [
-                Container(
-                  alignment: Alignment.centerLeft,
-                  width: double.infinity,
-                  child: Lottie.asset(
-                    'Animations/QuestionBoy.json',
-                    width: MediaQuery.of(context).size.width / 1.5,
-                    repeat: true,
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.bottomRight,
-                  height: 250,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 1.7,
-                    padding: const EdgeInsets.all(15.0),
-                    height: 110,
-                    alignment: Alignment.bottomCenter,
-                    child: const BubbleSpecialOne(
-                      text: 'Match the animal with its baby ',
-                      color: Color.fromARGB(255, 219, 223, 226),
-                      tail: true,
-                      isSender: false,
-                      textStyle: TextStyle(color: Colors.black, fontSize: 16),
-                    ),
-                    // Text('Match Animal With Baby',
-                    //     style: TextStyle(
-                    //       fontSize: 20,
-                    //     ),
-                    //     textAlign: TextAlign.center),
-                  ),
-                ),
-              ],
+
+      child: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 5,
             ),
-          ),
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: const Center(
-                child: SizedBox(
-                  height: 350,
-                  child: OptionsContainer(),
+            SizedBox(
+              width: double.infinity,
+              height: 250,
+              child: Stack(
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    width: double.infinity,
+                    child: Lottie.asset(
+                      'Animations/QuestionBoy.json',
+                      width: MediaQuery.of(context).size.width / 1.5,
+                      repeat: true,
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.bottomRight,
+                    height: 250,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 1.7,
+                      padding: const EdgeInsets.all(15.0),
+                      height: 110,
+                      alignment: Alignment.bottomCenter,
+                      child: const BubbleSpecialOne(
+                        text: 'Match the animal with its baby.',
+                        color: Color.fromARGB(255, 219, 223, 226),
+                        tail: true,
+                        isSender: false,
+                        textStyle: TextStyle(color: Colors.black, fontSize: 16),
+                      ),
+                      // Text('Match Animal With Baby',
+                      //     style: TextStyle(
+                      //       fontSize: 20,
+                      //     ),
+                      //     textAlign: TextAlign.center),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: const Center(
+                  child: SizedBox(
+                    height: 350,
+                    child: OptionsContainer(),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -216,6 +213,9 @@ class _CardDesignLeftRightState extends State<CardDesignLeftRight> {
           if (counter == 4) {
             print('Completed');
             showModalBottomSheet(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
               context: context,
               builder: (builder) {
                 return Container(
@@ -224,21 +224,20 @@ class _CardDesignLeftRightState extends State<CardDesignLeftRight> {
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15),
                     ),
-                  color: Colors.green,
+                    color: Colors.green,
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 20),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      elevation: 12
-                    ),
-                    onPressed: () {},
+                        backgroundColor: Colors.white, elevation: 12),
+                    onPressed: () {
+                      
+                    },
                     child: const Text(
                       'Completed',
                       style: TextStyle(
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold
-                      ),
+                          color: Colors.green, fontWeight: FontWeight.bold),
                     ),
                   ),
                 );

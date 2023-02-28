@@ -1,7 +1,5 @@
 // import 'package:anipedia/Screens/Favourite.dart';
-import 'package:anipedia/Screens/Quiz/lifespan_quiz.dart';
 import 'package:anipedia/Screens/Quiz/match_the_animals.dart';
-import 'package:anipedia/Screens/quiz/quizWindow.dart';
 import 'package:anipedia/Screens/stories/storiesDisplayPage.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +18,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static  final List<Widget> _widgetOptions = <Widget>[
-    const Home(),
+     const Home(),
     const Favourtie(),
-    const LifeSpanQuiz(),
+    const MatchTheAnimalsScreen(),
      StoriesDisplayPage()
   ];
 
@@ -30,12 +28,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     setState(() {
       _selectedIndex = index;
     });
-    print('Value Changes');
   }
 
   @override
   Widget build(BuildContext context) {
-    print("Number of times build");
     return Scaffold(
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),

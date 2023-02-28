@@ -1,12 +1,17 @@
+import 'package:anipedia/Screens/informationPage.dart';
 import 'package:anipedia/Widgets/Crousel.dart';
 import 'package:anipedia/Widgets/dayWise_crousel.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-import 'informationPage.dart';
+import '../firebase/auth.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
+  Future<void> signOut() async {
+    await Auth().signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +49,9 @@ class Home extends StatelessWidget {
                   ),
                   const Spacer(),
                   GestureDetector(
-                    onTap: (() {
-                    }),
+                    onTap: () {
+                      signOut();
+                    },
                     child: Material(
                       elevation: 12,
                       borderRadius: BorderRadius.circular(50),

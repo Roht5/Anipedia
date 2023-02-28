@@ -10,18 +10,18 @@ class Favourtie extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title:const Text(
+        title: const Text(
           "Favorites",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 30
-          ),
+          style: TextStyle(color: Colors.black, fontSize: 30),
         ),
       ),
       body: ListView(
         children: const [
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           FavContainer(),
+          
         ],
       ),
     );

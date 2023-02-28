@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "177099622569",
+    "project_id": "anipedia-3855b",
+    "storage_bucket": "anipedia-3855b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177099622569:android:20588c040cd5c996b1c1b8",
+        "android_client_info": {
+          "package_name": "com.example.anipedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177099622569-gt8npkavm310mvdjqtrs1kmhoqhae9fs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhQT9ZSIcPQhy5q5oFc9_EeywX5DozUMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177099622569-gt8npkavm310mvdjqtrs1kmhoqhae9fs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
